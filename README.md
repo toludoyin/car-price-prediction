@@ -36,3 +36,15 @@ when clone from git to local machine use pip install -r requirements.txt to inst
 
  5. Heroku: for amazon web service
 
+ Tools:
+
+ Python3
+
+ Notebook-Jupyter
+
+ Framework- Flask
+
+ Frontend- HTML
+
+ Cloud- AWS
+
