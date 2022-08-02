@@ -31,8 +31,7 @@ def predict():
     transmission_type = request.form["transmission_type"]
 
     prediction = model.predict([[make, year, engine_fuel_type, engine_hp,	transmission_type, driven_wheels, number_of_doors, vehicle_size,	vehicle_style]])
-
-    output=round(prediction[0],2)
+    output = round(prediction[0],2)
 
     if output<0:
         return render_template('index.html',prediction_texts="Sorry I do not know this car brand")
