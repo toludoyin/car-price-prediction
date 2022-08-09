@@ -1,7 +1,7 @@
 
 from flask import Flask, render_template, request
 import jsonify
- flask_cors import CORS, cross_origin
+from flask_cors import CORS, cross_origin
 import pickle
 import numpy as np
 import sklearn
