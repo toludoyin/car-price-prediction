@@ -42,7 +42,7 @@
                         </div>
                         <br>
                         <div class="col-md-10 form-group" style="text-align: center">
-                            <label><b>Select brand</b></label><br>
+                            <label><b>Select brand:</b></label><br>
                             <select class="selectpicker form-control" id="make" name="make" required="1">
                                 {% for make in make %}
                                 <option value="{{make}}">{{make}}</option>
@@ -109,7 +109,7 @@
                             </select>
                         </div>
                         <div class="col-md-10 form-group" style="text-align: center">
-                            <button class="btn btn-primary form control" onclick="send_data()">Predict Car Price</button>
+                            <button class="btn btn-primary form-control" onclick="send_data()">Predict Car Price</button>
                         </div>
                     </form>
                     <br>
@@ -135,16 +135,16 @@ function send_data()
 {
     document.querySelector('form').addEventListener("submit", form_handler);
     //send and receive data to /predict
-    var fd= new FormData(document.querySelector('form'));
+    var fd=new FormData(document.querySelector('form'));
 
-    var xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest({mozSystem: true});
     xhr.open('POST', '/predict', true);
-    document.GetElementById('prediction').innerHTML="Processing Predicting Price..";
-    xhr.onreadyStatechange = function()
+    document.getElementById('prediction').innerHTML="Processing Predicting Price....";
+    xhr.onreadystatechange = function()
     {
         if(xhr.readyState == XMLHttpRequest.DONE)
         {
-            document.getElementById('prediction').innerHTML="prediction: $"+xhr.responseText;
+            document.getElementById('prediction').innerHTML="Prediction: $"+xhr.responseText;
         }
     };
     xhr.onload = function(){};
