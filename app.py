@@ -1,5 +1,5 @@
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import jsonify
 from flask_cors import CORS, cross_origin
 import pickle
@@ -29,7 +29,7 @@ def home():
     return render_template('index.html', year=year, make=make, number_of_doors=number_of_doors, vehicle_style=vehicle_style, vehicle_size=vehicle_size, driven_wheels=driven_wheels, engine_fuel_type=engine_fuel_type, transmission_type= transmission_type)
 
 @app.route("/predict", methods=['POST'])
-
+@cross_origin()
 def predict():
     """rendering result to html gui"""
 
@@ -44,6 +44,7 @@ def predict():
     transmission_type = request.form.get('transmission_type')
 
     prediction = model.predict(pd.DataFrame(columns=['make', 'year', 'engine_fuel_type', 'engine_hp', 'transmission_type', 'driven_wheels', 'number_of_doors', 'vehicle_size', 'vehicle_style'], data=np.array([make, year, engine_fuel_type, engine_hp, transmission_type, driven_wheels, number_of_doors, vehicle_size, vehicle_style]).reshape(1,9)))
+    print(prediction)
 
     return str(np.round(prediction[0],2))
 
