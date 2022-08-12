@@ -1,5 +1,6 @@
 
 
+Car Price Predictor Website: https://car-prices-prediction-a.herokuapp.com/
 
 # **Car price prediction**
 The car price prediction project analyses and predict car prices using the car features as input. The aim of the project is to help users predict car price.
@@ -34,5 +35,4 @@ venv: virtual environment for collecting libraries
  Design and Template file
  * html and bootstrap template
 
- The website: https://car-prices-prediction-a.herokuapp.com/
 
