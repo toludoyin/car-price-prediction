@@ -4,9 +4,8 @@ import jsonify
 from flask_cors import CORS, cross_origin
 import pickle
 import numpy as np
-import sklearn
-import numpy as np
 import pandas as pd
+import sklearn
 
 app = Flask(__name__, template_folder='template')
 cors=CORS(app)
