@@ -2,7 +2,7 @@
 
 
 # **Car price prediction**
-The car price prediction project analyses and predict car prices using the car features as input.
+The car price prediction project analyses and predict car prices using the car features as input. The aim of the project is to help users predict car price.
 
 ## Outline of project
 1. Data Collection
