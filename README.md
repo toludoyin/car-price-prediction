@@ -17,22 +17,22 @@ The car price prediction project analyses and predict car prices using the car f
 
 
 Procfile file
-* indicate to heroku which file to start execution from which is the app
+* indicate to heroku which file to start execution from, which is the app
 
 Requirement.txt
-* Stores all libraries and dependencies used in the project and makes it easier for a third-party to install all libraries
+* Stores all libraries and dependencies used in the project and makes it easier for third-parties to install all libraries
 
 venv: virtual environment for collecting libraries
-* to create virtual enviroment (carpredictor) using python3 -m venv(env-name)
+* to create virtual enviroment (env) => python3 -m venv(env-name)
 
-* to activate virtual enviroment using source (env-name)/bin/activate
+* activate virtual enviroment => source (env-name)/bin/activate
 
 * pip freeze > reqirement.txt
 
-* when clone from git to local machine use pip install -r requirements.txt to install packages
+* when clone from git to local machine use pip install -r requirements.txt to install all packages
 
- Design file
- * used html and bootstrap template
+ Design and Template file
+ * html and bootstrap template
 
  The website: https://car-prices-prediction-a.herokuapp.com/
 
