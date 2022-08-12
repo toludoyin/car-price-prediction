@@ -2,51 +2,37 @@
 
 
 # **Car price prediction**
-This notebook analyse car prices of different makers and models with different features and also help users predict car price using the already fuelled data to learn from your new data using the features made available on the web to help determine and predict your car price.
+The car price prediction project analyses and predict car prices using the car features as input.
 
-In otherwords, before the dataset was used for prediction thorough data cleaning and exploration was carried out inorder to achieve a statistical significant result.
+## Outline of project
+1. Data Collection
 
-Steps:
+2. Data Exploration and Cleaning
 
-1. Collection and exploration of data
+3. Data Analysis
 
-2. Modelling
+4. Model Building and Prediction
 
-3. Model to pickle
+5. Deployment to Heroku
 
-4. Flask app:
 
-a. procfile
+Procfile file
+* indicate to heroku which file to start execution from which is the app
 
-indicate to heroku which file to start execution from
+Requirement.txt
+* Stores all libraries and dependencies used in the project and makes it easier for a third-party to install all libraries
 
-b. create requirement.txt
+venv: virtual environment for collecting libraries
+* to create virtual enviroment (carpredictor) using python3 -m venv(env-name)
 
-create virtual enviroment (carpredictor) using python3 -m venv(env-name)
+* to activate virtual enviroment using source (env-name)/bin/activate
 
-activate virtual enviroment using source (env-name)/bin/activate
+* pip freeze > reqirement.txt
 
-install libraries and dependencies into requirement.txt using pip freeze > reqirement.txt
+* when clone from git to local machine use pip install -r requirements.txt to install packages
 
-when clone from git to local machine use pip install -r requirements.txt to install packages
-
- c. index.html
-
- d. app.py
-
- 5. Heroku: for amazon web service
-
- Tools:
-
- Python3
-
- Notebook-Jupyter
-
- Framework- Flask
-
- Frontend- HTML
-
- Cloud- AWS
+ Design file
+ * used html and bootstrap template
 
  The website: https://car-prices-prediction-a.herokuapp.com/
 
