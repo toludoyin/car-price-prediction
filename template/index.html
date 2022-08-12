@@ -35,7 +35,7 @@
                         <div class="col-md-10 form-group" style="text-align: center">
                             <label><b>Enter year</b></label><br>
                             <select class="selectpicker form-control" id="year" name="year" required="1">
-                                {% for year in year %}
+                                {% for year in years %}
                                 <option value="{{year}}">{{year}}</option>
                                 {% endfor %}
                             </select>
@@ -43,18 +43,24 @@
                         <br>
                         <div class="col-md-10 form-group" style="text-align: center">
                             <label><b>Select brand:</b></label><br>
-                            <select class="selectpicker form-control" id="make" name="make" required="1">
-                                {% for make in make %}
+                            <select class="selectpicker form-control" id="make" name="make" required="1" onchange="load_car_models(this.id, 'model')">
+                                {% for make in makes %}
                                 <option value="{{make}}">{{make}}</option>
                                 {% endfor %}
                             </select>
                         </div>
                         <br>
                         <div class="col-md-10 form-group" style="text-align: center">
+                            <label><b>Select brand model:</b></label><br>
+                            <select class="selectpicker form-control" id="model" name="model" required="1">
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-md-10 form-group" style="text-align: center">
                             <label><b>How many doors do you want the car to have?</b></label>
-                            <select class="selectpicker form-control" id="number_of_doors" name="number_of_doors" required="1">
-                                {% for number_of_doors in number_of_doors %}
-                                <option value="{{number_of_doors}}">{{number_of_doors}}</option>
+                            <select class="selectpicker form-control" id="number_of_door" name="number_of_door" required="1">
+                                {% for number_of_door in number_of_doors %}
+                                <option value="{{number_of_door}}">{{number_of_door}}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -62,7 +68,7 @@
                         <div class="col-md-10 form-group" style="text-align: center">
                             <label><b>Select preferred car style</b></label>
                             <select class="selectpicker form-control" id="vehicle_style" name="vehicle_style" required="1">
-                                {% for vehicle_style in vehicle_style %}
+                                {% for vehicle_style in vehicle_styles %}
                                 <option value="{{vehicle_style}}">{{vehicle_style}}</option>
                                 {% endfor %}
                             </select>
@@ -71,7 +77,7 @@
                         <div class="col-md-10 form-group" style="text-align: center">
                             <label><b>What car size are you going for?</b></label>
                             <select class="selectpicker form-control" id="vehicle_size" name="vehicle_size" required="1">
-                                {% for vehicle_size in vehicle_size %}
+                                {% for vehicle_size in vehicle_sizes %}
                                 <option value="{{vehicle_size}}">{{vehicle_size}}</option>
                                 {% endfor %}
                             </select>
@@ -79,9 +85,9 @@
                         <br>
                         <div class="col-md-10 form-group" style="text-align: center">
                             <label><b>What driven wheels will you want in your car?</b></label>
-                            <select class="selectpicker form-control" id="driven_wheels" name="driven_wheels" required="1">
-                                {% for driven_wheels in driven_wheels %}
-                                <option value="{{driven_wheels}}">{{driven_wheels}}</option>
+                            <select class="selectpicker form-control" id="driven_wheel" name="driven_wheel" required="1">
+                                {% for driven_wheel in driven_wheels %}
+                                <option value="{{driven_wheel}}">{{driven_wheel}}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -89,7 +95,7 @@
                         <div class="col-md-10 form-group" style="text-align: center">
                             <label><b>Which of the engine fuel type will suit your car?</b></label>
                             <select class="selectpicker form-control" id="engine_fuel_type" name="engine_fuel_type"required="1">
-                                {% for engine_fuel_type in engine_fuel_type %}
+                                {% for engine_fuel_type in engine_fuel_types %}
                                 <option value="{{engine_fuel_type}}">{{engine_fuel_type}}</option>
                                 {% endfor %}
                             </select>
@@ -103,7 +109,7 @@
                         <div class="col-md-10 form-group" style="text-align: center">
                             <label><b>Select transmission type</b></label>
                             <select class="selectpicker form-control" id="transmission_type" name="transmission_type" required="1">
-                                {% for transmission_type in transmission_type %}
+                                {% for transmission_type in transmission_types %}
                                 <option value="{{transmission_type}}">{{transmission_type}}</option>
                                 {% endfor %}
                             </select>
@@ -126,30 +132,55 @@
 
 
 <script>
-    function form_handler(event)
-{
-    event.preventDefault();
-}
-
-function send_data()
-{
-    document.querySelector('form').addEventListener("submit", form_handler);
-    //send and receive data to /predict
-    var fd=new FormData(document.querySelector('form'));
-
-    var xhr = new XMLHttpRequest({mozSystem: true});
-    xhr.open('POST', '/predict', true);
-    document.getElementById('prediction').innerHTML="Processing Predicting Price....";
-    xhr.onreadystatechange = function()
+    function load_car_models(make_id,model_id)
     {
-        if(xhr.readyState == XMLHttpRequest.DONE)
+        var make= document.getElementById(this.id);
+        var model= document.getElementById(model_id);
+
+        model.value="";
+        model.innerHTML="";
+
+        {% for make in makes %}
+            if(make.value == "{{ make }}")
+            {
+                {% for model in models %}
+                    {% if make in model %}
+                        var newOption = document.createElement("option");
+                        newOption.value= "{{model}}";
+                        newOption.innerHTML= "{{model}}";
+                        model.options.add(newOption);
+                    {% endif %}
+                {% endfor %}
+            }
+        {% endfor %}
+    }
+
+
+    function form_handler(event)
+    {
+        event.preventDefault();
+    }
+
+    function send_data()
+    {
+        document.querySelector('form').addEventListener("submit", form_handler)
+        //send and receive data to /predict
+        var fd=new FormData(document.querySelector('form'));
+        var xhr = new XMLHttpRequest({mozSystem: true});
+
+        xhr.open('POST', '/predict', true);
+        document.getElementById('prediction').innerHTML="Processing Predicting Price....";
+        xhr.onreadystatechange = function()
+
         {
-            document.getElementById('prediction').innerHTML="Prediction: $"+xhr.responseText;
-        }
-    };
-    xhr.onload = function(){};
-    xhr.send(fd);
-}
+            if(xhr.readyState == XMLHttpRequest.DONE)
+            {
+                document.getElementById('prediction').innerHTML="Prediction: $"+xhr.responseText;
+            }
+        };
+        xhr.onload = function(){};
+        xhr.send(fd);
+    }
 
 
 </script>
