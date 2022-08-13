@@ -3,18 +3,28 @@
 Car Price Predictor Website: https://car-prices-prediction-a.herokuapp.com/
 
 # **Car price prediction**
-The car price prediction project analyses and predict car prices using the car features as input. The aim of the project is to help users predict car price.
+The car price prediction project, analyses and predict car prices using the car features as input. The aim of the project is to help users predict the price of their preffered brand along with its qualities before placing an order.
 
 ## Outline of project
 1. Data Collection
+I collected my data from kaggle(https://www.kaggle.com/datasets/CooperUnion/cardataset) that was scapped from twitter and Edmunds website.
 
 2. Data Exploration and Cleaning
+Wrangled my data into a better readable format for analysis, using the pandas library to drop irrelevant column, handling missing row and column, case formatting and removed outliers with IQR-interquartile range.
 
 3. Data Analysis
+Visualised the data with the interactive python library(plotly) along with saeaborn and matplot to see distributions and relationships.
 
 4. Model Building and Prediction
+Model the data with scikit-learn library, for preprocessing:
+* Applied the test-train-split, splitted the data into independent(predictors) and dependent(price'(msrp)') test and train.
+* One-hot encoding: to encode categorical features into machine format.
+* Applied make-column-transformer: this applied seperate transformer on the numerical and categorical features.
+* Model selection: picked the best performing model on both trained and test set.
+* Serialised the model with Pickle library into a byte file.
 
 5. Deployment to Heroku
+Deployed predictor app with heroku account.
 
 
 Procfile file
