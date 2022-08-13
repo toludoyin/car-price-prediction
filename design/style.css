@@ -2,14 +2,17 @@
 .{
     margin: 0;
     padding: 0;
-    boc-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .bg-dark{
-    background-color: #1bbbbb;
+    background-color: #0d6efd;
 }
 
 .mt-50{
     margin-top:50px;
+}
+#canvas{
+    border: 2px solid black;
 }
 
