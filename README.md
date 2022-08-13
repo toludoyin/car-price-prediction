@@ -7,12 +7,15 @@ The car price prediction project, analyses and predict car prices using the car 
 
 ## Outline of project
 1. Data Collection
+
 I collected my data from kaggle(https://www.kaggle.com/datasets/CooperUnion/cardataset) that was scapped from twitter and Edmunds website.
 
 2. Data Exploration and Cleaning
+
 Wrangled my data into a better readable format for analysis, using the pandas library to drop irrelevant column, handling missing row and column, case formatting and removed outliers with IQR-interquartile range.
 
 3. Data Analysis
+
 Visualised the data with the interactive python library(plotly) along with saeaborn and matplot to see distributions and relationships.
 
 4. Model Building and Prediction
