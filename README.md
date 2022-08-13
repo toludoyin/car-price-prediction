@@ -3,7 +3,7 @@
 Car Price Predictor Website: https://car-prices-prediction-a.herokuapp.com/
 
 # **Car price prediction**
-The car price prediction project, analyses and predict car prices using the car features as input. The aim of the project is to help users predict the price of their preffered brand along with its qualities before placing an order.
+The car price prediction project, analyses and predict car prices using the car features as input. The aim of the project is to help users either buyers and sellers predict the price of their preffered brand along with its qualities before placing an order.
 
 ## Outline of project
 1. Data Collection
