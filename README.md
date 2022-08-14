@@ -21,7 +21,7 @@ Visualised the data with the interactive python library(plotly) along with saeab
 4. Model Building and Prediction
 
 Model the data with scikit-learn library, for preprocessing:
-* Applied the test-train-split, splitted the data into independent(predictors) and dependent(price'(msrp)') test and train.
+* Applied the test-train-split, splitted the data into independent(predictors) and dependent(response'(msrp)') test and train.
 * One-hot encoding: to encode categorical features into machine format.
 * Applied make-column-transformer: this applied seperate transformer on the numerical and categorical features.
 * Model selection: examined 5 algorithm on the dataset to pick the best performing model on both trained and test set.
