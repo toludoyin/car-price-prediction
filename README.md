@@ -27,9 +27,7 @@ Model the data with scikit-learn library, for preprocessing:
 * Model selection: examined 5 algorithm on the dataset to pick the best performing model on both trained and test set.
 * Serialised the model with Pickle library into a byte file.
 
-5. Deployment to Heroku
-Deployed predictor app with heroku account.
-
+5. Deploy app to Heroku
 
 Procfile file
 * Indicate to heroku which file to start execution from, which is the app
