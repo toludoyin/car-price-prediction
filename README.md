@@ -19,6 +19,7 @@ Wrangled my data into a better readable format for analysis, using the pandas li
 Visualised the data with the interactive python library(plotly) along with saeaborn and matplot to see distributions and relationships.
 
 4. Model Building and Prediction
+
 Model the data with scikit-learn library, for preprocessing:
 * Applied the test-train-split, splitted the data into independent(predictors) and dependent(price'(msrp)') test and train.
 * One-hot encoding: to encode categorical features into machine format.
@@ -31,7 +32,7 @@ Deployed predictor app with heroku account.
 
 
 Procfile file
-* indicate to heroku which file to start execution from, which is the app
+* Indicate to heroku which file to start execution from, which is the app
 
 Requirement.txt
 * Stores all libraries and dependencies used in the project and makes it easier for third-parties to install libraries
