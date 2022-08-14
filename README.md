@@ -34,7 +34,7 @@ Procfile file
 * indicate to heroku which file to start execution from, which is the app
 
 Requirement.txt
-* Stores all libraries and dependencies used in the project and makes it easier for third-parties to install all libraries
+* Stores all libraries and dependencies used in the project and makes it easier for third-parties to install libraries
 
 venv: virtual environment for collecting libraries
 * to create virtual enviroment (env) => python3 -m venv(env-name)
