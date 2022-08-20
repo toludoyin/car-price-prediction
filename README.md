@@ -31,6 +31,8 @@ Model the data with scikit-learn library, for preprocessing:
 
 5. Deploy app to Heroku
 
+## Others
+
 Procfile file
 * Indicate to heroku which file to start execution from, which is the app
 
