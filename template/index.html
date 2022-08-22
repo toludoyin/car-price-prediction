@@ -17,111 +17,103 @@
 
     <div class="container">
         <div class="row">
-            <div class="card mt-50" style="width: 75%; height: 100%">
-                <div class="bg-light">
+            <div class="card mt-50" style="width: 70%; height: 100%; left:15%">
+                <div class="card-header" style="text-align: center">
+                        <h1>Car Price Predictor</h1>
+                </div>
 
-                    <div class="card-header">
-                        <div class="bg-light">
-                            <div class="col-12" style="text-align: center">
-                                <h1>Car Price Predictor</h1>
-                            </div>
-                        </div>
+                <div class="card-body">
+                    <div class="col-12" style="text-align: center">
+                        <h6><i>This app predict manufacturer suggested retail price of your input features. Fill your car details to get the price.</i>
+                        </h6>
                     </div>
-
-                    <div class="card-body">
-                        <div class="col-12" style="text-align: center">
-                            <h6><i>This app predict manufacturer suggested retail price of your input features. Fill your car details to get the price.</i>
-                            </h6>
+                    <br>
+                    <form method="post" accept-charset="utf-8" name="Modelform">
+                        <div class="col-md-12 form-group" style="text-align: center">
+                            <label><b>Enter year</b></label><br>
+                            <select class="selectpicker form-control" id="year" name="year" required="1">
+                                {% for year in year %}
+                                <option value="{{year}}">{{year}}</option>
+                                {% endfor %}
+                            </select>
                         </div>
                         <br>
-                        <form method="post" accept-charset="utf-8" name="Modelform">
-                            <div class="col-md-12 form-group" style="text-align: center">
-                                <label><b>Enter year</b></label><br>
-                                <select class="selectpicker form-control" id="year" name="year" required="1">
-                                    {% for year in year %}
-                                    <option value="{{year}}">{{year}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <br>
-                            <div class="col-md-12 form-group" style="text-align: center">
-                                <label><b>Select brand:</b></label><br>
-                                <select class="selectpicker form-control" id="make" name="make" required="1">
-                                    {% for make in make %}
-                                    <option value="{{make}}">{{make}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <br>
-                            <div class="col-md-12 form-group" style="text-align: center">
-                                <label><b>How many doors do you want the car to have?</b></label>
-                                <select class="selectpicker form-control" id="number_of_doors" name="number_of_doors" required="1">
-                                    {% for number_of_doors in number_of_doors %}
-                                    <option value="{{number_of_doors}}">{{number_of_doors}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <br>
-                            <div class="col-md-12 form-group" style="text-align: center">
-                                <label><b>Select preferred car style</b></label>
-                                <select class="selectpicker form-control" id="vehicle_style" name="vehicle_style" required="1">
-                                    {% for vehicle_style in vehicle_style %}
-                                    <option value="{{vehicle_style}}">{{vehicle_style}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <br>
-                            <div class="col-md-12 form-group" style="text-align: center">
-                                <label><b>What car size are you going for?</b></label>
-                                <select class="selectpicker form-control" id="vehicle_size" name="vehicle_size" required="1">
-                                    {% for vehicle_size in vehicle_size %}
-                                    <option value="{{vehicle_size}}">{{vehicle_size}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <br>
-                            <div class="col-md-12 form-group" style="text-align: center">
-                                <label><b>What driven wheels will you want in your car?</b></label>
-                                <select class="selectpicker form-control" id="driven_wheels" name="driven_wheels" required="1">
-                                    {% for driven_wheels in driven_wheels %}
-                                    <option value="{{driven_wheels}}">{{driven_wheels}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <br>
-                            <div class="col-md-12 form-group" style="text-align: center">
-                                <label><b>Which of the engine fuel type will suit your car?</b></label>
-                                <select class="selectpicker form-control" id="engine_fuel_type" name="engine_fuel_type" required="1">
-                                    {% for engine_fuel_type in engine_fuel_type %}
-                                    <option value="{{engine_fuel_type}}">{{engine_fuel_type}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <br>
-                            <div class="col-md-12 form-group" style="text-align: center">
-                                <label><b>Select engine horse power</b></label>
-                                <input class="form-control" id="engine_hp" name="engine_hp" placeholder="Enter engine horse power">
-                            </div>
-                            <br>
-                            <div class="col-md-12 form-group" style="text-align: center">
-                                <label><b>Select transmission type</b></label>
-                                <select class="selectpicker form-control" id="transmission_type" name="transmission_type" required="1">
-                                    {% for transmission_type in transmission_type %}
-                                    <option value="{{transmission_type}}">{{transmission_type}}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-                            <br>
-                            <div class="col-md-12 form-group" style="text-align: center">
-                                <button class="btn btn-primary form-control" onclick="send_data()">Predict Car Price</button>
-                            </div>
-                        </form>
+                        <div class="col-md-12 form-group" style="text-align: center">
+                            <label><b>Select brand:</b></label><br>
+                            <select class="selectpicker form-control" id="make" name="make" required="1">
+                                {% for make in make %}
+                                <option value="{{make}}">{{make}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
                         <br>
-
-                        <div class="row">
-                            <div class="col-12" style="text-align: center">
-                                <h4><span id="prediction"></span></h4>
-                            </div>
+                        <div class="col-md-12 form-group" style="text-align: center">
+                            <label><b>How many doors do you want the car to have?</b></label>
+                            <select class="selectpicker form-control" id="number_of_doors" name="number_of_doors" required="1">
+                                {% for number_of_doors in number_of_doors %}
+                                <option value="{{number_of_doors}}">{{number_of_doors}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-md-12 form-group" style="text-align: center">
+                            <label><b>Select preferred car style</b></label>
+                            <select class="selectpicker form-control" id="vehicle_style" name="vehicle_style" required="1">
+                                {% for vehicle_style in vehicle_style %}
+                                <option value="{{vehicle_style}}">{{vehicle_style}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-md-12 form-group" style="text-align: center">
+                            <label><b>What car size are you going for?</b></label>
+                            <select class="selectpicker form-control" id="vehicle_size" name="vehicle_size" required="1">
+                                {% for vehicle_size in vehicle_size %}
+                                <option value="{{vehicle_size}}">{{vehicle_size}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-md-12 form-group" style="text-align: center">
+                            <label><b>What driven wheels will you want in your car?</b></label>
+                            <select class="selectpicker form-control" id="driven_wheels" name="driven_wheels" required="1">
+                                {% for driven_wheels in driven_wheels %}
+                                <option value="{{driven_wheels}}">{{driven_wheels}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-md-12 form-group" style="text-align: center">
+                            <label><b>Which of the engine fuel type will suit your car?</b></label>
+                            <select class="selectpicker form-control" id="engine_fuel_type" name="engine_fuel_type" required="1">
+                                {% for engine_fuel_type in engine_fuel_type %}
+                                <option value="{{engine_fuel_type}}">{{engine_fuel_type}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-md-12 form-group" style="text-align: center">
+                            <label><b>Select engine horse power</b></label>
+                            <input class="form-control" id="engine_hp" name="engine_hp" placeholder="Enter engine horse power">
+                        </div>
+                        <br>
+                        <div class="col-md-12 form-group" style="text-align: center">
+                            <label><b>Select transmission type</b></label>
+                            <select class="selectpicker form-control" id="transmission_type" name="transmission_type" required="1">
+                                {% for transmission_type in transmission_type %}
+                                <option value="{{transmission_type}}">{{transmission_type}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-md-12 form-group" style="text-align: center">
+                            <button class="btn btn-primary form-control" onclick="send_data()">Predict Car Price</button>
+                        </div>
+                    </form>
+                    <br>
+                    <div class="row">
+                        <div class="col-12" style="text-align: center">
+                            <h4><span id="prediction"></span></h4>
                         </div>
                     </div>
                 </div>
