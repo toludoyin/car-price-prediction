@@ -44,7 +44,7 @@ venv: virtual environment for collecting libraries
 
 * activate virtual enviroment => ```source (env-name)/bin/activate```
 
-* ```pip freeze > reqirement.txt
+* ```pip freeze > reqirement.txt```
 
 * when clone from git to local machine use pip install -r requirements.txt to install all packages
 
