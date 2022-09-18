@@ -40,7 +40,7 @@ Requirement.txt
 * Stores all libraries and dependencies used in the project and makes it easier for third-parties to install libraries
 
 venv: virtual environment for collecting libraries
-* to create virtual enviroment (env) => ```sql python3 -m venv(env-name)```
+* to create virtual enviroment (env) => ```python3 -m venv(env-name)```
 
 * activate virtual enviroment => source (env-name)/bin/activate
 
