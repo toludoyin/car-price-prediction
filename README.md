@@ -1,8 +1,8 @@
 
 
-* Car Price Predictor Website: https://car-prices-prediction-a.herokuapp.com/
+* [Car Price Predictor Website](https://car-prices-prediction-a.herokuapp.com/)
 
-* To access the notebook in a presentation format and to interact with its graphs check: https://nbviewer.org/github/toludoyin/car_price_prediction/blob/main/car_price_analysis_model.ipynb
+* To access the notebook in a presentation format and to interact with its graphs [check](https://nbviewer.org/github/toludoyin/car_price_prediction/blob/main/car_price_analysis_model.ipynb)
 
 # **Car price prediction**
 The car price prediction project predict car prices using the car features as input. The aim of the project is to help users either buyers and sellers predict the price of their preffered brand along with its qualities before placing an order.
@@ -10,7 +10,7 @@ The car price prediction project predict car prices using the car features as in
 ## Outline of project
 1. Data Collection
 
-I collected my data from kaggle(https://www.kaggle.com/datasets/CooperUnion/cardataset) that was scapped from twitter and Edmunds website.
+I collected my data from [kaggle](https://www.kaggle.com/datasets/CooperUnion/cardataset) that was scapped from twitter and Edmunds website.
 
 2. Data Exploration and Cleaning
 
@@ -40,7 +40,7 @@ Requirement.txt
 * Stores all libraries and dependencies used in the project and makes it easier for third-parties to install libraries
 
 venv: virtual environment for collecting libraries
-* to create virtual enviroment (env) => python3 -m venv(env-name)
+* to create virtual enviroment (env) => ```sql python3 -m venv(env-name)```
 
 * activate virtual enviroment => source (env-name)/bin/activate
 
