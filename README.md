@@ -46,7 +46,7 @@ venv: virtual environment for collecting libraries
 
 * ```pip freeze > reqirement.txt```
 
-* when clone from git to local machine use ```pip install -r requirements.txt to install all packages
+* when clone from git to local machine use ```pip install -r requirements.txt``` to install all packages
 
  Design and Template file
  * html and bootstrap template
